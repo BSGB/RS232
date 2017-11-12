@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="450.0" maxWidth="650.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="650.0" minWidth="650.0" prefWidth="650.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="481.6" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="350.0" minHeight="350.0" prefHeight="350.0" />
+  </rowConstraints>
+   <children>
+      <TitledPane alignment="TOP_LEFT" animated="false" collapsible="false" text="Manage COM ports" GridPane.rowSpan="2" GridPane.valignment="TOP">
+        <content>
+          <AnchorPane>
+               <children>
+                  <ComboBox fx:id="portsComboBox" layoutX="14.0" layoutY="30.0" onAction="#checkStatus" prefWidth="150.0" />
+                  <Button fx:id="openCloseButton" disable="true" layoutX="370.0" layoutY="30.0" mnemonicParsing="false" onAction="#openCloseButtonAction" text="Open" />
+                  <Label fx:id="openCloseLabel" layoutX="513.0" layoutY="34.0" text="Port is closed..." />
+                  <Button fx:id="editButton" disable="true" layoutX="250.0" layoutY="30.0" mnemonicParsing="false" onAction="#openEditWindow" text="Edit" />
+                  <GridPane layoutX="19.0" layoutY="55.0" prefHeight="30.0" prefWidth="610.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Data bits:" GridPane.columnIndex="2" />
+                        <Label fx:id="baudLabel" text="=+=" GridPane.columnIndex="1" />
+                        <Label text="Baud rate:" />
+                        <Label fx:id="dataLabel" text="=+=" GridPane.columnIndex="3" />
+                        <Label fx:id="flowLabel" text="=+=" GridPane.columnIndex="9" />
+                        <Label text="Flow:" GridPane.columnIndex="8" />
+                        <Label fx:id="parityLabel" text="=+=" GridPane.columnIndex="7" />
+                        <Label text="Parity:" GridPane.columnIndex="6" />
+                        <Label fx:id="stopLabel" text="=+=" GridPane.columnIndex="5" />
+                        <Label text="Stop bits:" GridPane.columnIndex="4" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </content>
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+      </TitledPane>
+      <TitledPane fx:id="communicationPane" animated="false" collapsible="false" disable="true" text="Communicate with COM" GridPane.rowIndex="1" GridPane.valignment="TOP">
+        <content>
+          <AnchorPane>
+               <children>
+                  <TextField fx:id="sendTextField" layoutX="14.0" layoutY="41.0" prefHeight="26.0" prefWidth="393.0" />
+                  <Button fx:id="sendButton" layoutX="521.0" layoutY="41.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="25.0" prefWidth="107.0" text="Send" />
+                  <TextArea fx:id="receivedTextArea" layoutX="14.0" layoutY="94.0" prefHeight="200.0" prefWidth="551.0" />
+                  <CheckBox fx:id="rCheckBox" layoutX="429.0" layoutY="45.0" mnemonicParsing="false" text="\\r" />
+                  <CheckBox fx:id="nCheckBox" layoutX="469.0" layoutY="45.0" mnemonicParsing="false" text="\\n" />
+                  <Button fx:id="clearButton" layoutX="575.0" layoutY="95.0" mnemonicParsing="false" onAction="#clearTextArea" prefHeight="199.0" prefWidth="49.0" text="Clear" />
+               </children>
+            </AnchorPane>
+        </content>
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+      </TitledPane>
+   </children>
+</GridPane>
